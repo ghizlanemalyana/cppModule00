@@ -6,7 +6,7 @@
 /*   By: gmalyana <gmalyana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 18:21:05 by gmalyana          #+#    #+#             */
-/*   Updated: 2025/02/11 16:33:19 by gmalyana         ###   ########.fr       */
+/*   Updated: 2025/02/21 19:44:03 by gmalyana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,12 @@ class Contact {
 		bool isValidInput(std::string input);
 		bool isValidNumber(std::string input);
 
-		std::string getFirstName(bool shortValue = false);
-		std::string getLastName(bool shortValue = false);
-		std::string getNickName(bool shortValue = false); 
+		std::string getShortFirstName();
+		std::string getShortLastName();
+		std::string getShortNickName(); 
+		std::string getFirstName();
+		std::string getLastName();
+		std::string getNickName(); 
 		std::string getPhoneNumber();
 		std::string getDarkestSecret();
 

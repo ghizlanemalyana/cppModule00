@@ -6,7 +6,7 @@
 /*   By: gmalyana <gmalyana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:16:06 by gmalyana          #+#    #+#             */
-/*   Updated: 2025/02/12 19:35:17 by gmalyana         ###   ########.fr       */
+/*   Updated: 2025/02/21 19:58:54 by gmalyana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,27 +90,38 @@ bool Contact::setNickName(std::string input)
     return true;
 }
 
-std::string Contact::getFirstName(bool shortValue)
+std::string Contact::getFirstName()
 {
-	if (shortValue && firstName.length() > 10) {
-        firstName = firstName.substr(0, 9) + "."; 
-	}
 	return firstName;
 }
-std::string Contact::getLastName(bool shortValue)
+std::string Contact::getLastName()
 {
-	if (shortValue && lastName.length() > 10) {
-        lastName = lastName.substr(0, 9) + ".";
-	}
 	return lastName;
 }
-std::string Contact::getNickName(bool shortValue)
+std::string Contact::getNickName()
 {
-	if (shortValue && nickname.length() > 10) {
-        nickname = nickname.substr(0, 9) + ".";
-	}
 	return nickname;
 }
+
+std::string Contact::getShortFirstName()
+{
+	if (firstName.length() > 10)
+		return firstName.substr(0, 9) + ".";
+	return firstName;
+}
+std::string Contact::getShortLastName()
+{
+	if (lastName.length() > 10)
+		return lastName.substr(0, 9) + ".";
+	return lastName;
+}
+std::string Contact::getShortNickName()
+{
+	if (nickname.length() > 10)
+		return nickname.substr(0, 9) + ".";
+	return nickname;
+}
+
 std::string Contact::getPhoneNumber()
 {
 	return phoneNumber;

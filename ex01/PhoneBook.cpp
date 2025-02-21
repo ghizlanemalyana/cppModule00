@@ -6,7 +6,7 @@
 /*   By: gmalyana <gmalyana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:41:02 by gmalyana          #+#    #+#             */
-/*   Updated: 2025/02/11 15:58:20 by gmalyana         ###   ########.fr       */
+/*   Updated: 2025/02/21 20:21:110 by gmalyana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,10 @@ void PhoneBook::AddContact() {
 	if (std::cin.eof())
 		return ;
 
-	if (index_tracker != 8) {
-		contacts[index_tracker] = contact;
-		index_tracker++;
-	}
-	else {
-		contacts[0] = contact;
-	}
+	contacts[index_tracker] = contact;
+	index_tracker++;
+	if (index_tracker == 8)
+		index_tracker = 0;
 
 	std::cout << std::endl << "| ** The contact has been succesfully added ** |" <<std::endl;
 }
@@ -106,7 +103,7 @@ void Contact::AddNickName() {
 void Contact::AddPhoneNumber() {
 	if (std::cin.eof())
 		return ;
-	
+	 
 	std::string value;
 	
 	while (true){
@@ -139,8 +136,8 @@ void Contact::AddDarkestSecret() {
 
 void PhoneBook::DisplayContacts() {
 	Contact contact;
-	
-	if (index_tracker == 0)
+
+	if (this->contacts[0].getFirstName().length() == 0)
 	{
 		std::cout << "| ** No contacts to display ** |" << std::endl;
 		return ;
@@ -154,9 +151,9 @@ void PhoneBook::DisplayContacts() {
 	for (int i = 0; i < index_tracker; i++)
 	{
 		std::cout << "|" << std::setw(10) << i + 1 << "|";
-		std::cout << std::setw(10) << contacts[i].getFirstName(true) << "|";
-		std::cout << std::setw(10) << contacts[i].getLastName(true) << "|";
-		std::cout << std::setw(10) << contacts[i].getNickName(true) << "|" << std::endl;
+		std::cout << std::setw(10) << contacts[i].getShortFirstName() << "|";
+		std::cout << std::setw(10) << contacts[i].getShortLastName() << "|";
+		std::cout << std::setw(10) << contacts[i].getShortNickName() << "|" << std::endl;
 		std::cout << "---------------------------------------------" << std::endl;
 	}
 
